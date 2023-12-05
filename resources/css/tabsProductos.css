@@ -1,0 +1,44 @@
+.tabActivo {
+    display: inline-block;
+    height: 1.75rem;
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+    font-size: 0.875rem; 
+    line-height: 1.25rem;
+    text-align: center;
+    color: rgb(37 99 235);
+    background-color: transparent;
+    border-bottom-width: 2px;
+    border-color: rgb(59 130 246);
+    white-space: nowrap;
+}
+.tabActivo:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.tabInactivo {
+    display: inline-block;
+    height: 1.75rem;
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+    font-size: 0.875rem; 
+    line-height: 1.25rem;
+    text-align: center;
+    color: rgb(55 65 81);
+    background-color: transparent;
+    border-bottom-width: 2px;
+    border-color: transparent;
+    white-space: nowrap;
+    cursor: default;
+}
+.tabInactivo:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.tabInactivo:hover {
+    border-color: rgb(156 163 175);
+}

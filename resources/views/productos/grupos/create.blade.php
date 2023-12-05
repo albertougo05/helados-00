@@ -1,0 +1,125 @@
+<x-app-layout>
+    <x-slot name="title">Heladerías - Grupo Prod.</x-slot>
+    <div class="flex mt-8 mb-6">
+        <div class="mx-auto w-full md:w-5/6 bg-gray-100 overflow-hidden shadow-lg sm:rounded-lg opacity-83">
+            <div class="pl-8 pt-6 text-gray-700 text-3xl font-bold">
+                Nuevo Grupo de productos
+            </div>
+            @if (session('status'))
+                <x-alert-success titulo="Perfecto !" >
+                    {{ session('status') }}
+                </x-alert-success>
+            @endif
+            <div>
+                <hr class="my-3 mx-4 border-gray-400">
+            </div>
+            <form method="POST" 
+                  action="{{ route('producto_grupo.store') }}"
+                  autocomplete="off">
+                @csrf
+                <input type="hidden" name="estado" value="1">
+
+                <!-- GRID 1 -->
+                <div class="grid overflow-auto grid-cols-6 gap-3 px-6 pb-3">
+                    <div></div>
+                    <div>   <!-- Row 1 Col 1 -->
+                        <x-label for="id" :value="__('Id')"/>
+                        <x-input id="id"
+                                name="id"
+                                class="block mt-0 w-3/4 h-9 text-right" 
+                                type="text" 
+                                value="{{ $newid }}" 
+                                readonly />
+                    </div>
+                    <div class="col-span-3">   <!-- Row 1 Col 2/3 -->
+                        <x-label for="descripcion" :value="__('Descripción')" />
+                        <x-input type="text"
+                                    name="descripcion"
+                                    id="descripcion"
+                                    autocomplete="off"
+                                    :value="old('descripcion')"
+                                    class="block mt-0 w-full h-9" />
+                        @error('descripcion')
+                            <p class="m-1 text-red-600 text-xs italic">{{ $errors->first('descripcion') }}</p>
+                        @enderror
+                    </div>
+                    <div></div>
+                </div>
+                <!-- GRID 2 -->
+                <div class="grid overflow-auto grid-cols-6 gap-3 px-6 pb-3">
+                    <div></div>
+                    <div class="flex">
+                        <input type="checkbox"
+                            name="mide_desvio"
+                            id="mide_desvio"
+                            class="block ml-1 mt-1" />
+                        <x-label for="mide_desvio" :value="__('Mide desvio')" class="pl-2 pt-0.5" />
+                    </div>
+                    <div class="flex">
+                        <input type="checkbox"
+                            name="carga_stock"
+                            id="carga_stock"
+                            class="block ml-1 mt-1" />
+                        <x-label for="carga_stock" :value="__('Carga stock')" class="pl-2 pt-0.5" />
+                    </div>
+                    <div class="flex">
+                        <input type="checkbox"
+                            name="unidad"
+                            id="unidad"
+                            class="block ml-1 mt-1" />
+                        <x-label for="unidad" :value="__('Venta por unidad')" class="pl-2 pt-0.5" />
+                    </div>
+                    <div class="flex">
+                        <input type="checkbox"
+                            name="caja"
+                            id="caja"
+                            class="block ml-1 mt-1" />
+                        <x-label for="caja" :value="__('Venta en caja')" class="pl-2 pt-0.5" />
+                    </div>
+                </div>
+                <!-- GRID 3 -->
+                <div class="grid overflow-auto grid-cols-6 gap-3 px-6 pb-3">
+                    <div></div>
+                    <div>   <!-- Row 2 Col 1-->
+                        <x-label for="orden" :value="__('Orden en ventas')"/>
+                        <x-input id="orden"
+                                name="orden"
+                                class="block mt-0 w-3/4 h-9 text-right" 
+                                type="text"/>
+                    </div>
+                </div>
+                <!-- Línea y botones confirma / cancela  -->
+                <div>
+                    <hr class="my-6 mx-4 border-gray-400">
+                </div>
+                <div class="flex justify-between mt-0">
+                    <div>
+                        <div class="hidden" id="spinGuardando">
+                            <div class="flex ml-10">
+                                <div class="w-48 ml-6">
+                                    <p>Guardando datos...</p>
+                                </div>
+                                <div class="w-32 mx-auto">
+                                    <div style="border-top-color:transparent"
+                                        class="w-8 h-8 border-4 border-blue-400 border-solid rounded-full animate-spin"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end mt-0 mb-6 mr-6">
+                        <div>
+                            <x-button class="mr-4" id="btnConfirma">
+                                Confirma
+                            </x-button>
+                            <x-link-salir href="{{ route('producto_grupo.index') }}">
+                                Salir                    
+                            </x-link-salir>
+                        </div>
+                    </div>
+                </div> 
+            </form>
+
+        </div>
+
+    </div>
+</x-app-layout>

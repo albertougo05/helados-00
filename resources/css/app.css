@@ -1,0 +1,142 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+/* Boton de scroll up */
+#scrollUp {
+    background-image: url("../img/arrow_up_blue_white.png");
+    bottom: 20px;
+    right: 20px;
+    width: 45px;    /* Width of image */
+    height: 45px;   /* Height of image */
+    cursor: pointer;
+    position: fixed;
+    display: none;
+    z-index: 20;
+}
+
+/* table fixed head to scroll  */
+.tableFixHead { 
+    overflow-y: auto;
+}
+.tableFixHead thead { 
+    position: sticky; 
+    top: 0; 
+    z-index: 10;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+    padding: 0 16px;
+}
+
+
+/* @import autocomplete */
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+.autocomplete-items div {
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+#autocomplete-list {
+    margin-top: 3px;
+    border: 2px solid rgba(165, 180, 252, 1);;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    z-index: 99;
+}
+
+
+/* @import 'btnsColors.css'; */
+
+.btnSelected2 {
+    background-color: #3730a3;
+    color: white;
+    font-weight: 700;
+}
+.linSelected {
+    background-color: #319795   ;
+    color: white;
+    font-weight: 700;
+}
+.lineaConDatoGreen {
+    background-color: #86efac   ;
+}
+
+
+/* @import 'tabsProductos.css'; */
+
+.tabActivo {
+    display: inline-block;
+    height: 1.75rem;
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    text-align: center;
+    color: rgb(37 99 235);
+    background-color: transparent;
+    border-bottom-width: 2px;
+    border-color: rgb(59 130 246);
+    white-space: nowrap;
+}
+.tabActivo:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.tabInactivo {
+    display: inline-block;
+    height: 1.75rem;
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+    font-size: 0.875rem; 
+    line-height: 1.25rem;
+    text-align: center;
+    color: rgb(55 65 81);
+    background-color: transparent;
+    border-bottom-width: 2px;
+    border-color: transparent;
+    white-space: nowrap;
+    cursor: default;
+}
+.tabInactivo:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.tabInactivo:hover {
+    border-color: rgb(156 163 175);
+}
